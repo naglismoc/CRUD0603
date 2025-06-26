@@ -1,102 +1,25 @@
-hollidays = [
-    {
-        'id': 1,
-        "country":"Lithuania",
-        "city":"Palanga",
-        "price":20,
-        "accomodation":"hotel"
-    },
-    {
-        'id': 2,
-        "country":"Turkija",
-        "city":"Alanya",
-        "price":60,
-        "accomodation":"hostel"
-    },
-    {
-        'id': 3,
-        "country":"Cyprus",
-        "city":"Larnaka",
-        "price":70,
-        "accomodation":"apartaments"
-    }
-]
+from CRUD_functions import *
+
+hollidays = load_default_data()
 id_counter = 3
 
 while True:
-    print("--------------------------------------------------------------------------")
-    print("1. Atvaizduoti atostogu pasirinkimus")
-    print("2. Įtraukti atostogas i sarasa")
-    print("3. koreguoti atostogas")
-    print("4. šalinti atostogas")
-    print("5. išeiti iš programos")
-    print("-----------------------------Pasirinkite:---------------------------------")
+    print_info()
     choise = input()
 
     match choise:
         case '1':
-            # print("--------------------------------------------------------------------------")
-            for hol in hollidays:
-                print(f"{hol['id']}. Atostogos {hol['country']} {hol['city']}. Kaina gyvenant {hol['accomodation']} "
-                      f"parai {hol['price']}")
-            print("--------------------------------------------------------------------------")
-
+           print_hollidays(hollidays)
         case '2':
-            print("atostogų pridėjimas:")
-            print("Įveskite šalį")
-            country = input()
-            print("Įveskite miestą")
-            city = input()
-            print("Įveskite apgyvendinimo tipą")
-            apt = input()
-            print("Įveskite kainą")
-            price = input()
             id_counter +=1
-            hollidays.append(
-                {
-                    'id': id_counter,
-                    "country":country,
-                    "city":city,
-                    "price":price,
-                    "accomodation":apt
-                }
-            )
+            hollidays.append(create_hollidays(id_counter))
         case '3':
-            print("atostogų redagavimas. Pasirinkite ID įrašo kurį norite redaguoti.")
-            id = input()
-            for hol in hollidays:
-                if id == str(hol['id']):
-                    print(f"{hol['id']}. Atostogos {hol['country']} {hol['city']}. Kaina gyvenant {hol['accomodation']} "
-                          f"parai {hol['price']}")
-
-                    print("Įveskite šalį")
-                    hol['country'] = input()
-                    print("Įveskite miestą")
-                    hol['city'] = input()
-                    print("Įveskite apgyvendinimo tipą")
-                    hol['accomodation'] = input()
-                    print("Įveskite kainą")
-                    hol['price'] = input()
-                    break
+           edit_hollidays(hollidays)
         case '4':
-            print("atostogų šalinimas. Pasirinkite ID įrašo kurį norite redaguoti.")
-            id = input()
-            for hol in hollidays:
-                if id == str(hol['id']):
-                    print(
-                        f"{hol['id']}. Šalinama: Atostogos {hol['country']} {hol['city']}. Kaina gyvenant"
-                        f" {hol['accomodation']} "
-                        f"parai {hol['price']}")
-                    del hollidays[hollidays.index(hol)]
+           delete_hollidays(hollidays)
         case '5':
             print("programa sustabdyta")
             break
-
-
-
-
-
-
 
 
 
