@@ -1,7 +1,6 @@
-from CRUD_functions import *
+from fileCRUD import *
 
-hollidays = load_default_data()
-id_counter = 3
+holidays = load_holidays()
 
 while True:
     print_info()
@@ -9,17 +8,17 @@ while True:
 
     match choise:
         case '1':
-           print_hollidays(hollidays)
+           print_holidays(holidays)
         case '2':
-            id_counter +=1
-            hollidays.append(create_hollidays(id_counter))
+            create_holiday(holidays)
         case '3':
-           edit_hollidays(hollidays)
+           edit_holiday(holidays)
         case '4':
-           delete_hollidays(hollidays)
+           delete_holiday(holidays)
         case '5':
             print("programa sustabdyta")
             break
+
 
 
 

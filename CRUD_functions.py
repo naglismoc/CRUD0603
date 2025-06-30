@@ -76,14 +76,14 @@ def edit_hollidays(hollidays):
             hol['price'] = input()
             break
 
-def delete_hollidays(hollidays):
+def delete_holidays(holidays):
     print("atostogų šalinimas. Pasirinkite ID įrašo kurį norite redaguoti.")
     id = input() #3
-    for hol in hollidays: # 0, 1, 2
+    for hol in holidays: # 0, 1, 2
         if id == str(hol['id']): #1 2 3
             print(
                 f"{hol['id']}. Šalinama: Atostogos {hol['country']} {hol['city']}. Kaina gyvenant"
                 f" {hol['accomodation']} "
                 f"parai {hol['price']}")
-            hol_pos_in_list = hollidays.index(hol)
-            del hollidays[hol_pos_in_list]
+            hol_pos_in_list = holidays.index(hol)
+            del holidays[hol_pos_in_list]
