@@ -1,8 +1,8 @@
-from fileCRUD import *
+from db_CRUD import *
 
-holidays = load_holidays()
 
 while True:
+    holidays = load_holidays()
     print_info()
     choise = input()
 
@@ -18,8 +18,6 @@ while True:
         case '5':
             print("programa sustabdyta")
             break
-
-
 
 
 

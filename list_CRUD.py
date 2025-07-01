@@ -65,7 +65,6 @@ def edit_hollidays(hollidays):
         if id == str(hol['id']):
             print(f"{hol['id']}. Atostogos {hol['country']} {hol['city']}. Kaina gyvenant {hol['accomodation']} "
                   f"parai {hol['price']}")
-
             print("Įveskite šalį")
             hol['country'] = input()
             print("Įveskite miestą")
